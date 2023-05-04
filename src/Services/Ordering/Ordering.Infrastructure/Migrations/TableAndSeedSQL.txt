@@ -1,0 +1,33 @@
+﻿//CreateDatabase Manually. It is too much code to migrate one record. And for many records migrations are too complex. 
+//Simple data copy paste is much easier.
+
+
+CREATE TABLE [dbo].[Orders]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [UserName] NVARCHAR(50) NULL, 
+    [TotalPrice] DECIMAL(18, 2) NULL, 
+    [FirstName] NVARCHAR(50) NULL, 
+    [LastName] NVARCHAR(50) NULL, 
+    [EmailAddress] NVARCHAR(50) NULL, 
+    [AddressLine] NVARCHAR(50) NULL, 
+    [Country] NVARCHAR(50) NULL, 
+    [State] NVARCHAR(50) NULL, 
+    [ZipCode] NVARCHAR(50) NULL, 
+    [CardName] NVARCHAR(50) NULL,
+	[CardNumber] NVARCHAR(50) NULL, 
+    [Expiration] NVARCHAR(50) NULL, 
+    [CVV] NVARCHAR(50) NULL, 
+    [PaymentMethod] NVARCHAR(50) NULL, 
+    [CreatedBy] NVARCHAR(50) NULL, 
+    [CreatedDate] DATETIME2 NULL, 
+    [LastModifiedDate] DATETIME2 NULL, 
+    [LastModifiedBy] NVARCHAR(50) NULL
+)
+
+///
+
+SET IDENTITY_INSERT [dbo].[Orders] ON
+INSERT INTO [dbo].[Orders] ([Id], [UserName], [TotalPrice], [FirstName], [LastName], [EmailAddress], [AddressLine], [Country], [State], [ZipCode], [CardName], [CardNumber], [Expiration], [CVV], [PaymentMethod], [CreatedBy], [CreatedDate], [LastModifiedDate], [LastModifiedBy]) 
+VALUES (1, N'swm', CAST(123.00 AS Decimal(18, 2)), N'Leszek', N'Develop', N'lgdev@email.com', N'25 Avenue', N'USA', N'IL', N'36363', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+SET IDENTITY_INSERT [dbo].[Orders] OFF
