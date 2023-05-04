@@ -2,32 +2,39 @@
 //Simple data copy paste is much easier.
 
 
-CREATE TABLE [dbo].[Orders]
-(
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [UserName] NVARCHAR(50) NULL, 
-    [TotalPrice] DECIMAL(18, 2) NULL, 
-    [FirstName] NVARCHAR(50) NULL, 
-    [LastName] NVARCHAR(50) NULL, 
-    [EmailAddress] NVARCHAR(50) NULL, 
-    [AddressLine] NVARCHAR(50) NULL, 
-    [Country] NVARCHAR(50) NULL, 
-    [State] NVARCHAR(50) NULL, 
-    [ZipCode] NVARCHAR(50) NULL, 
-    [CardName] NVARCHAR(50) NULL,
-	[CardNumber] NVARCHAR(50) NULL, 
-    [Expiration] NVARCHAR(50) NULL, 
-    [CVV] NVARCHAR(50) NULL, 
-    [PaymentMethod] NVARCHAR(50) NULL, 
-    [CreatedBy] NVARCHAR(50) NULL, 
-    [CreatedDate] DATETIME2 NULL, 
-    [LastModifiedDate] DATETIME2 NULL, 
-    [LastModifiedBy] NVARCHAR(50) NULL
-)
+CREATE TABLE [dbo].[Orders] (
+    [Id]               INT             IDENTITY (1, 1) NOT NULL,
+    [UserName]         NVARCHAR (50)   NULL,
+    [TotalPrice]       DECIMAL (18, 2) NULL,
+    [FirstName]        NVARCHAR (50)   NULL,
+    [LastName]         NVARCHAR (50)   NULL,
+    [EmailAddress]     NVARCHAR (50)   NULL,
+    [AddressLine]      NVARCHAR (50)   NULL,
+    [Country]          NVARCHAR (50)   NULL,
+    [State]            NVARCHAR (50)   NULL,
+    [ZipCode]          NVARCHAR (50)   NULL,
+    [CardName]         NVARCHAR (50)   NULL,
+    [CardNumber]       NVARCHAR (50)   NULL,
+    [Expiration]       NVARCHAR (50)   NULL,
+    [CVV]              NVARCHAR (50)   NULL,
+    [PaymentMethod]    INT   NULL,
+    [CreatedBy]        NVARCHAR (50)   NULL,
+    [CreatedDate]      DATETIME2 (7)   NULL,
+    [LastModifiedDate] DATETIME2 (7)   NULL,
+    [LastModifiedBy]   NVARCHAR (50)   NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
 
 ///
 
 SET IDENTITY_INSERT [dbo].[Orders] ON
 INSERT INTO [dbo].[Orders] ([Id], [UserName], [TotalPrice], [FirstName], [LastName], [EmailAddress], [AddressLine], [Country], [State], [ZipCode], [CardName], [CardNumber], [Expiration], [CVV], [PaymentMethod], [CreatedBy], [CreatedDate], [LastModifiedDate], [LastModifiedBy]) 
-VALUES (1, N'swm', CAST(123.00 AS Decimal(18, 2)), N'Leszek', N'Develop', N'lgdev@email.com', N'25 Avenue', N'USA', N'IL', N'36363', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+VALUES (1, N'swn', CAST(123.00 AS Decimal(18, 2)), N'Leszek', N'Develop', N'lgdev@email.com', N'25 Avenue', N'USA', N'IL', N'36363', 'Visa', '3455502502525', '04/04/2027', '344', 1, 'swn', '05/04/2023', '05/04/2023', 'swn')
+SET IDENTITY_INSERT [dbo].[Orders] OFF
+
+
+SET IDENTITY_INSERT [dbo].[Orders] ON
+INSERT INTO [dbo].[Orders] ([Id], [UserName], [TotalPrice], [FirstName], [LastName], [EmailAddress], [AddressLine], [Country], [State], [ZipCode], [CardName], [CardNumber], [Expiration], [CVV], [PaymentMethod], [CreatedBy], [CreatedDate], [LastModifiedDate], [LastModifiedBy]) 
+VALUES (1, N'jbl', CAST(350.00 AS Decimal(18, 2)), N'Jill', N'Bill', N'jb@email.com', N'225 Avenue', N'USA', N'IL', N'30063', 'Visa', '3455502502525', '04/04/2027', '344', 1, 'jbl', '05/04/2023', '05/04/2023', 'jbl')
 SET IDENTITY_INSERT [dbo].[Orders] OFF
